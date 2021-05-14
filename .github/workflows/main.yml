@@ -24,10 +24,10 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
-    - name: Make envfile
-      uses: SpicyPizza/create-envfile@v1
-      with:
-        file_name: ../codes/settings/.env
+    - name: Run envfile
+      #uses: SpicyPizza/create-envfile@v1
+      #with:
+      uses: ./codes/settings/.env
     - name: start env
       run:
         pip install -r ./codes/requirements.txt
