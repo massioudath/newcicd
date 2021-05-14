@@ -24,11 +24,11 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
-    - name: Run envfile
+    #- name: Run envfile
       #uses: SpicyPizza/create-envfile@v1
       #with:
-      uses: ./codes/settings/.env
-    - name: start env
+      #uses: ./codes/settings/.env
+    - name: Install 
       run:
         pip install -r ./codes/requirements.txt
         pip install -r ./codes/requirements
@@ -36,3 +36,7 @@ jobs:
       run: 
         python ./codes/manage.py test
         python ./codes/manage.py migrate 
+    - name: Build & push Docker image
+      run: |
+        docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_ACCES_TOKEN }}
+        docker build -t img . 
