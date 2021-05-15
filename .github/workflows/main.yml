@@ -36,8 +36,7 @@ jobs:
         time: '60s'
     - name: Check running containers
       run: docker ps
-    - name: Run test suite
-      run: docker exec backend pytest --skip-auth  
+ 
       
     
   
