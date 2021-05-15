@@ -22,7 +22,6 @@ jobs:
       uses: actions/setup-python@v2
     
     - name: Run Tests
-   
       run: 
         source ./codes/env/bin/activate 
         python ./codes/manage.py test
