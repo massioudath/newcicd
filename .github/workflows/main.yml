@@ -31,5 +31,14 @@ jobs:
     - name: Build the docker-compose stack
       run: docker-compose up -d
       
+    - name: Sleep
+      uses: jakejarvis/wait-action@master
+      with:
+        time: '60s'
+    - name: Check running containers
+      run: docker ps
+    - name: Run test suite
+      run: docker exec backend pytest --skip-auth  
+      
     
   
