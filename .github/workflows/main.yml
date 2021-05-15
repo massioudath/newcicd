@@ -23,6 +23,7 @@ jobs:
     
     - name: Run Tests
       run: 
+        source ./codes/env/bin/activate 
         python ./codes/manage.py test
         python ./codes/manage.py migrate 
     - name: Run Dockerfile
