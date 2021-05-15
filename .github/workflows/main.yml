@@ -22,15 +22,15 @@ jobs:
       uses: actions/setup-python@v2
     
     - name: Run Tests
+   
       run: 
         source ./codes/env/bin/activate 
         python ./codes/manage.py test
         python ./codes/manage.py migrate 
     - name: Run Dockerfile
-      uses: actions/checkout@v1
-    - name: Build the docker-compose stack
-      run: docker-compose up -d
-      
+      uses:  actions/checkout@v2
+    - name: Run docker-compose stack
+      run: docker-compose -f docker-compose.yml up -d
     - name: Sleep
       uses: jakejarvis/wait-action@master
       with:
